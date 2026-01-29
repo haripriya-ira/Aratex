@@ -1,0 +1,152 @@
+/* =========================
+   Brand Story Section
+=========================== */
+.brand-story {
+  position: relative;
+  min-height: 500px; /* taller for premium feel */
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+  overflow: hidden;
+}
+
+/* Left-side Overlay */
+.brand-overlay {
+  position: absolute;
+  inset: 0;
+  /* gradient from left dark to right transparent */
+  background: linear-gradient(
+    90deg,               /* horizontal gradient */
+    rgba(0, 44, 75, 0.7) 0%,  /* left side darker */
+    rgba(0, 44, 75, 0.05) 70%, /* middle lightly tinted */
+    rgba(0, 44, 75, 0) 100%     /* right side fully transparent */
+  );
+  transition: background 0.5s ease;
+  z-index: 0;
+}
+
+/* Content Container */
+.brand-content {
+  position: relative;
+  max-width: 650px;
+  margin-left: 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+  animation: fadeUp 1s ease forwards;
+}
+
+/* Eyebrow / Tag */
+.brand-eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffcc66; /* brighter gold for contrast */
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
+
+/* Heading */
+.brand-content h2 {
+  white-space: nowrap;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: #ffffff;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards 0.4s;
+}
+
+/* Paragraph */
+.brand-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards 0.6s;
+}
+
+/* Button */
+.brand-btn {
+  width: 33%;
+  display: inline-block;
+  padding: 14px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #ffcc66;
+  border-radius: 8px;
+  color: #ffcc66;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards 0.8s;
+}
+
+/* Button Hover */
+.brand-btn:hover {
+  background: #ffcc66;
+  color: #002c4b;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Responsive
+=========================== */
+@media (max-width: 1024px) {
+  .brand-content {
+    margin-left: 5%;
+  }
+
+  .brand-content h2 {
+    font-size: 36px;
+  }
+
+  .brand-content p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-content {
+    margin-left: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .brand-content h2 {
+    font-size: 32px;
+  }
+
+  .brand-content p {
+    font-size: 15px;
+  }
+
+  .brand-btn {
+    padding: 12px 24px;
+  }
+}

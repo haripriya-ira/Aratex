@@ -1,0 +1,200 @@
+/* ---------- General ---------- */
+.contact-section {
+  padding: 60px 20px;
+  font-family: 'Poppins', 'Arial', sans-serif; /* modern font */
+  background: #f4f6fa;
+}
+
+.contact-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  align-items: stretch;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Form Card ---------- */
+.form-card {
+  background: linear-gradient(145deg, #ffffff, #fdfdfd);
+  border-radius: 20px;
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.1);
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, #ffffff, #f8f8f8);
+}
+
+.contact-left h2 {
+  color: #c8a22c;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.contact-tagline {
+  font-size: 1.5rem;
+  color:#36454F;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.contact-tagline span {
+  color: #003366;
+  font-weight: 600;
+}
+
+/* ---------- Form Inputs ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.name-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.name-fields input,
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.name-fields input,
+.contact-form input[type="email"] {
+  height: 50px;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: none;
+}
+
+/* Focus effect */
+.name-fields input:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #003366;
+  box-shadow: 0 0 10px rgba(0, 60, 102, 0.2);
+}
+
+/* ---------- Button ---------- */
+.contact-form button {
+  background-color: #c8a22c;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: 20px;
+  transition: all 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #b59120;
+  transform: scale(1.05);
+}
+
+/* ---------- Right Column ---------- */
+.contact-right {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-image img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.contact-image img:hover {
+  transform: scale(1.03);
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.info-card,
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 12px 15px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.06);
+  flex: 1;
+  transition: all 0.3s;
+}
+
+.info-card:hover,
+.social-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.info-card .icon,
+.social-card .icon {
+  color: #c8a22c;
+  font-size: 1.2rem;
+}
+
+.social-card .icon {
+  font-size: 1.4rem;
+}
+
+/* ---------- Map ---------- */
+.contact-map {
+  margin-top: 100px;
+  border-radius: 15px;
+  overflow: hidden;
+  padding-left: 17%;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .name-fields {
+    flex-direction: column;
+  }
+  .contact-map {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,128 @@
+/* =========================
+   SECTION
+========================= */
+.why-section {
+  padding: 110px 0;
+  background-color: #132046; /* premium deep navy */
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.why-container {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  gap: 80px;
+
+  flex-wrap: wrap;
+}
+
+/* =========================
+   IMAGE
+========================= */
+.why-image {
+  flex: 1 1 55%;
+  height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.why-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.why-content {
+  flex: 1 1 40%;
+  color: rgba(255, 255, 255, 0.92);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-left: 40px; /* reduced from 90px */
+}
+
+/* =========================
+   TAG (brand whisper)
+========================= */
+.why-tag {
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: #cc9900; /* gold accent */
+  margin-bottom: 18px;
+  display: inline-block;
+}
+
+/* =========================
+   HEADING
+========================= */
+.why-content h2 {
+  font-size: 48px;        /* slightly reduced */
+  line-height: 1.15;
+  font-weight: 600;
+  margin-bottom: 22px;
+  max-width: 560px;       /* increased to avoid 3 lines */
+}
+
+.why-content h2 span {
+  color: #ffffff;         /* no bright blue */
+}
+.why-description
+ {
+  
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 540px;
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1200px) {
+  .why-container {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .why-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .why-image {
+    width: 100%;
+    height: 360px;
+  }
+
+  .why-content {
+    width: 100%;
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .why-content h2 {
+    font-size: 32px;
+    max-width: 100%;
+  }
+
+  .why-description {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}

@@ -1,6 +1,7 @@
 import "./ProductCategories.css";
 import img2 from "../assets/images/Arapro2.jpg";
 import img3 from "../assets/images/Arapro3.jpg";
+import img4 from "../assets/images/card4.jpg";
 
 const categories = [
   {
@@ -24,8 +25,7 @@ const categories = [
   },
  {
     title: "Fabric Swatches & Sampling",
-    image:
-      "https://media.istockphoto.com/id/181094519/photo/brown-stitched-fabric-swatches.jpg?s=2048x2048&w=is&k=20&c=8OffWBZoLuH5IRfWojsdX-BBNAjYyyPXNi10hQcVsQI=",
+    image:img4,
     tag: "Samples",
     link: "#",
   },

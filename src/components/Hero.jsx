@@ -1,7 +1,9 @@
 import "./Hero.css";
-import heroVideo from "../assets/images/AraHerovideo.mp4";
 
 export default function Hero() {
+  // Replace this with your CDN video URL
+  const heroVideo = "https://res.cloudinary.com/dvxlr7njh/video/upload/v1769685433/AraHerovideo_an9e8w.mp4";
+
   return (
     <section className="hero">
       <div className="hero-video-wrapper">
@@ -12,10 +14,10 @@ export default function Hero() {
           muted
           loop
           playsInline
+          preload="auto"
+          poster="/assets/hero-placeholder.jpg" // optional: show while video loads
         />
       </div>
-
-      
     </section>
   );
 }

@@ -29,6 +29,7 @@ body {
 /* =========================
    HEADINGS SCALE
 ========================= */
+h1, h2, h3, h4 { font-family: "Poppins", "Inter", sans-serif;}
 h1 {
   font-size: 3rem;      /* Hero titles */
   line-height: 1.1;

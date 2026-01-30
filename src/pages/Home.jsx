@@ -35,11 +35,11 @@ export default function Home() {
   <Hero />
 </section>
 
-<section className="reveal reveal-right">
+<section >
   <WhyAratex />
 </section>
 
-<section className="reveal reveal-right">
+<section  className="reveal reveal-right">
   <ProductCategories />
 </section>
 
@@ -47,7 +47,7 @@ export default function Home() {
   <BrandStory />
 </section>
 
-<section className="reveal reveal-right">
+<section  className="reveal reveal-right">
   <Contact />
 </section>
 

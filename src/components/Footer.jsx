@@ -14,8 +14,7 @@ export default function Footer() {
 
 
           <p className="footer-desc">
-            Supplying premium textile fabrics with quality, consistency,
-            and global standards.
+           Premium fabrics with consistent quality and regional expertise.
           </p>
         </div>
 
@@ -31,22 +30,26 @@ export default function Footer() {
         </div>
 
         {/* PRODUCTS */}
-        <div className="footer-col">
-          <h4>Products</h4>
-          <ul>
-            <li><a href="#">Garments</a></li>
-            <li><a href="#">Fabrics</a></li>
-            <li><a href="#">Yarn</a></li>
-          </ul>
-        </div>
+      <div className="footer-col">
+  <h4>Products</h4>
+  <ul>
+    <li><a href="#">Sustainable Fabrics</a></li>
+    <li><a href="#">Ready-to-Ship Stock</a></li>
+    <li><a href="#">Workwear Fabrics</a></li>
+    <li><a href="#">Sampling</a></li>
+  </ul>
+</div>
+
 
         {/* CONTACT */}
-        <div className="footer-col">
-          <h4>Contact</h4>
-          <p>Dubai, UAE</p>
-          <p>Email: info@yourdomain.com</p>
-          <p>Phone: +XXX XX XXX XXXX</p>
-        </div>
+      <div className="footer-col">
+  <h4>Contact</h4>
+  <p>Dubai, UAE</p>
+  <p>Trusted Textile Partner Across UAE & GCC</p>
+  <p>Email: info@example.com</p>
+  <p>Phone: +00 000 000 000</p>
+</div>
+
 
       </div>
 

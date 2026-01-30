@@ -1,128 +1,184 @@
-/* =========================
-   SECTION
-========================= */
 .why-section {
-  padding: 110px 0;
-  background-color: #132046; /* premium deep navy */
+  position: relative;
+  padding: 120px 0;
+  background: linear-gradient(180deg, #0f1c3f 0%, #132046 100%);
+  overflow: hidden;
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* Background accent */
+.why-bg-accent {
+  position: absolute;
+  top: 15%;
+  left: -120px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(204,153,0,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: 0;
+}
+
 .why-container {
   max-width: 1760px;
   margin: 0 auto;
   padding: 0 32px;
-
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 90px;
   align-items: center;
-  gap: 80px;
-
-  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
-/* =========================
-   IMAGE
-========================= */
+/* IMAGE */
 .why-image {
-  flex: 1 1 55%;
-  height: 520px;
-  border-radius: 20px;
+  height: 540px;
+  border-radius: 22px;
   overflow: hidden;
 }
 
-.why-image img {
+/* 3D wrapper */
+.wow-image {
+  perspective: 1200px;
+}
+
+/* Inner image layer */
+.image-3d {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  transition:
+    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.image-3d img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1);
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* =========================
-   CONTENT
-========================= */
+/* Premium hover zoom (no tilt, no shake) */
+@media (hover: hover) {
+  .wow-image:hover .image-3d {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow:
+      0 55px 140px rgba(0,0,0,0.45),
+      inset 0 0 0 1px rgba(255,255,255,0.08);
+  }
+
+  .wow-image:hover img {
+    transform: scale(1.06);
+  }
+}
+
+/* Slower zoom-out (luxury feel) */
+.wow-image:not(:hover) .image-3d,
+.wow-image:not(:hover) img {
+  transition-duration: 1.8s;
+}
+
+/* Sheen */
+.image-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.08),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .wow-image:hover .image-sheen {
+    opacity: 1;
+  }
+}
+
+/* CONTENT */
 .why-content {
-  flex: 1 1 40%;
-  color: rgba(255, 255, 255, 0.92);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  padding-left: 40px; /* reduced from 90px */
+  padding: 48px 46px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
 }
 
-/* =========================
-   TAG (brand whisper)
-========================= */
 .why-tag {
-  font-size: 14px;
-  letter-spacing: 1.5px;
+  font-size: 13px;
+  letter-spacing: 2px;
   font-weight: 600;
-  color: #cc9900; /* gold accent */
+  color: #cc9900;
   margin-bottom: 18px;
-  display: inline-block;
 }
 
-/* =========================
-   HEADING
-========================= */
 .why-content h2 {
-  font-size: 48px;        /* slightly reduced */
+  font-size: 48px;
   line-height: 1.15;
   font-weight: 600;
-  margin-bottom: 22px;
-  max-width: 560px;       /* increased to avoid 3 lines */
+  margin-bottom: 20px;
+  max-width: 520px;
 }
 
 .why-content h2 span {
-  color: #ffffff;         /* no bright blue */
+  color: #cc9900;
 }
-.why-description
- {
-  
+
+.why-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #cc9900, transparent);
+  margin: 26px 0 28px;
+  transform-origin: left;
+}
+
+.why-description {
   font-size: 16.5px;
   line-height: 1.85;
-  color: rgba(255, 255, 255, 0.75);
-  max-width: 540px;
+  color: rgba(255,255,255,0.75);
+  max-width: 520px;
+  margin-bottom: 18px;
 }
 
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 1200px) {
+/* Responsive */
+@media (max-width: 1024px) {
   .why-container {
-    gap: 60px;
-  }
-}
-
-@media (max-width: 900px) {
-  .why-container {
-    flex-direction: column;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
 
   .why-image {
-    width: 100%;
-    height: 360px;
+    height: 380px;
   }
 
   .why-content {
-    width: 100%;
-    padding-left: 0;
-    align-items: center;
+    padding: 36px;
     text-align: center;
+  }
+
+  .why-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-section {
+    padding: 90px 0;
   }
 
   .why-content h2 {
     font-size: 32px;
-    max-width: 100%;
-  }
-
-  .why-description {
-    max-width: 100%;
-    margin: 0 auto;
   }
 }

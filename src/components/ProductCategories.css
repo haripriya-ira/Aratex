@@ -1,30 +1,26 @@
-/* =========================
-   Product Categories Section
-=========================== */
 .categories-section {
   padding: 120px 20px;
-  background: #f8f9fb; /* subtle soft background for premium feel */
+  background: #f8f9fb;
+  overflow: hidden;
 }
 
 .categories-container {
   max-width: 1700px;
   margin: 0 auto;
-  padding: 0 12px;
-  overflow-x: auto;
 }
 
+/* HEADER */
 .categories-header {
   text-align: center;
-  max-width: 800px;
+  max-width: 890px;
   margin: 0 auto 70px;
-  animation: fadeInUp 1s ease forwards;
 }
 
 .categories-header h2 {
   font-size: 48px;
   font-weight: 700;
   color: #003366;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
 .categories-header p {
@@ -33,142 +29,135 @@
   line-height: 1.6;
 }
 
-/* =========================
-   Cards Grid
-=========================== */
+/* GRID */
 .categories-grid {
   display: flex;
   gap: 28px;
   justify-content: center;
-  flex-wrap: nowrap;
-  scroll-behavior: smooth;
-  perspective: 1000px; /* needed for 3D tilt */
+  perspective: 1400px;
 }
 
-/* =========================
-   Individual Card
-=========================== */
+/* CARD */
 .category-card {
   position: relative;
   flex: 0 0 350px;
-  max-width: 450px;
   height: 450px;
   border-radius: 20px;
   overflow: hidden;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  transform-style: preserve-3d; /* allow tilt */
+  background: #000;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
 .category-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  transform: rotateX(6deg) rotateY(-6deg) translateY(-12px);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.35);
 }
 
-/* 3D tilt effect */
-.category-card:hover .category-bg {
-  transform: scale(1.12) rotateX(2deg) rotateY(2deg);
-  filter: brightness(0.88);
+/* LIGHT SWEEP */
+.card-wow-layer {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.22),
+    transparent 55%
+  );
+  opacity: 0;
+  transform: translateX(-120%);
+  z-index: 3;
+  pointer-events: none;
 }
 
-/* Background Image */
+.category-card:hover .card-wow-layer {
+  opacity: 1;
+  animation: shine 1.4s ease forwards;
+}
+
+@keyframes shine {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* IMAGE */
 .category-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: transform 0.8s ease, filter 0.5s ease;
-  filter: brightness(0.92);
+  transform: scale(1.03);
+  transition: transform 1s ease;
 }
 
-/* Gradient Overlay */
+.category-card:hover .category-bg {
+  transform: scale(1.15);
+}
+
+/* OVERLAY — FIXED (NO LINES) */
 .category-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,51,102,0.2), rgba(0,51,102,0.6));
+  inset: -1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 28, 63, 0.35),
+    rgba(15, 28, 63, 0.75)
+  );
   z-index: 1;
-  transition: background 0.5s ease;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-.category-card:hover .category-overlay {
-  background: linear-gradient(to bottom, rgba(0,51,102,0.25), rgba(204,153,0,0.25));
-}
-
-/* =========================
-   Card Content
-=========================== */
+/* CONTENT */
 .category-content {
   position: relative;
   z-index: 2;
   height: 100%;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* diagonal reveal effect */
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
-  padding: 30px;
-  transform: translateY(40px);
   opacity: 0;
+  transform: translateY(40px) translateZ(1px);
   transition: transform 0.6s ease, opacity 0.6s ease;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Staggered reveal */
 .category-card:hover .category-content {
-  transform: translateY(0);
   opacity: 1;
+  transform: translateY(0) translateZ(1px);
 }
 
-.category-card:hover .category-content .category-tag {
-  transition-delay: 0.1s;
-}
-
-.category-card:hover .category-content h2 {
-  transition-delay: 0.2s;
-  text-shadow: 0 2px 12px rgba(255,255,255,0.3); /* subtle glow */
-}
-
-.category-card:hover .category-content .category-btn {
-  transition-delay: 0.3s;
-}
-
-/* Tag */
+/* TAG */
 .category-tag {
-  display: inline-block;
-  background: rgba(204,153,0,0.15);
-  color: #003366;
-  font-size: 12px;
-  font-weight: 600;
+  background: rgba(207, 232, 17, 0.18);
+  color: #fff;
   padding: 6px 14px;
   border-radius: 12px;
+  font-size: 12px;
   margin-bottom: 12px;
-  letter-spacing: 0.5px;
-  transition: all 0.4s ease;
 }
 
-.category-card:hover .category-tag {
-  background: #cc9900;
-  color: #002c4b;
-}
-
-/* Title */
+/* TITLE — NO UNDERLINE */
 .category-content h2 {
   font-size: 30px;
-  font-weight: 600;
-  margin-bottom: 16px;
   color: #ffffff;
-  line-height: 1.2;
-  transition: all 0.4s ease;
+  margin-bottom: 16px;
+  text-decoration: none;
 }
 
-/* Button */
+/* BUTTON — CLEAN */
 .category-btn {
-  border: 1px solid #ffffff;
-  padding: 10px 22px;
-  font-size: 13px;
-  letter-spacing: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  padding: 6px 14px;
   border-radius: 8px;
+  color: #ffffff;
+  background: transparent;
   transition: all 0.4s ease;
 }
 
@@ -176,45 +165,4 @@
   background: #cc9900;
   border-color: #cc9900;
   color: #002c4b;
-}
-
-/* =========================
-   Responsive
-=========================== */
-@media (max-width: 1200px) {
-  .categories-grid {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 10px;
-  }
-}
-
-@media (max-width: 900px) {
-  .category-card {
-    min-width: 300px;
-    height: 350px;
-  }
-}
-
-@media (max-width: 768px) {
-  .categories-header h2 {
-    font-size: 36px;
-  }
-  .category-content h2 {
-    font-size: 24px;
-  }
-}
-
-/* =========================
-   Animations
-=========================== */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
